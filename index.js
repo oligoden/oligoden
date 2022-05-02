@@ -7,7 +7,7 @@ function d(i,p) {
 }
 function bgdraw(bg,p) {
     var paths = bg.children, iPath = 0;
-    var m = 5;
+    var m = 4;
     if (paths.length < (m*2+1)) {
         while (bg.firstChild) {bg.removeChild(bg.firstChild);}
         var svgNS = "http://www.w3.org/2000/svg";
