@@ -66,13 +66,13 @@ svg.ax-bg{
 
 .ax-bgcurve {
   fill:none;
-  stroke:rgb(117, 163, 182);
+  stroke:#75a3b6aa;
   stroke-width:0.2px;
   stroke-opacity:1
 }
 
 .ax-red-stroke {
-  stroke:#d53b3b;
+  stroke:#d53b3bbb;
   stroke-width:0.3px;
 }
 .ax-edge-stroke {
