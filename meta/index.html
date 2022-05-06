@@ -24,6 +24,33 @@
                 an abstraction of the code and actively manage it.
             </p>
         </header>
+        <section>
+            <h2>Getting started</h2>
+            <p>
+                Meta is executed as a globaly available binary in a project folder.
+                It looks at a <span class="code">meta.json</span> file in the project root
+                and use it to build the source code.
+            </p>
+            <section>
+                <h3>Installation</h3>
+                <h4>Pre-built binaries</h4>
+                <p>
+                    Download the compressed package from
+                    <a href="https://github.com/oligoden/meta/releases">github.com/oligoden/meta/releases</a>.
+                    Optionally, download the SHA256SUMS file and run
+                    <span class="code">sha256sum -c SHA256SUMS 2>&1 | grep OK</span>
+                    Extract the package
+                    <span class="code">unzip meta-$VERSION-$OS-$ARCH.zip -d /usr/local</span>
+                    Add binary to your environment:
+                    <span class="code">export PATH=$PATH:/usr/local/meta/bin</span>
+                </p>
+                <h4>Build Go source</h4>
+                <p>
+                    If you have Golang installed (and your <span class="code">~/go/bin</span> in your PATH env):
+                    <span class="code">go install github.com/oligoden/meta</span>
+                </p>
+            </section>
+        </section>
     </main>
 </body>
 </html>
