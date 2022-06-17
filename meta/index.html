@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/path/to/styles/default.min.css">
+    <script src="/path/to/highlight.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
 </head>
@@ -57,11 +59,61 @@
                     file to a project root with content <span class="code">{}</span> enables
                     Meta on the project. Running <span class="code">meta build</span>
                     should output:
+                </p>
+                <p>
                     <span class="code">
-
+                        >meta build
+                        loaded config file
+                        processing...
+                        building...
+                        done
                     </span>
                 </p>
+                <p>
+                    First the <span class="code">meta.json</span> config file gets loaded
+                    and the nodes described in it processed. The nodes (e.g. files) are then
+                    build.
+                </p>
             </section>
+        </section>
+        <section>
+            <h2>Overview</h2>
+            <p>
+                Meta looks in the current directory for a configuration file.  The configuration
+                files typically look like this:
+
+                <pre><code>
+                    {
+                        "name": "my-app",
+                        "dirs": {
+                            "app": {
+                                "dest":"/.app"
+                                "files": {
+                                    "main.go": {}
+                                }
+                            }
+                        },
+                        "execs": {
+                            "build": {
+                                "cmd": ["go", "build", ".app/main.go"]
+                            }
+                        }
+                    }
+                </code></pre>
+
+                It starts with a project name and is followed by the `dirs` key which
+                specifies a file structure of files that will be mapped to the source code.
+                It is then followed by the `execs` key that specifies external commands that
+                must run once the source code is created.
+                The example above will take the file `app/main.go`, copy or parse it and
+                create a file `.app/main.go`. The Golang build tool will then be invoked to
+                build a binary.
+
+                The configuration structure forms a graph of nodes as shown in the following
+                figure. Four basic types of node exist namely project, directory, file and exec
+                nodes. See <a href="https://oligoden.com/meta/nodes">Node Reference</a> for more
+                information about nodes.
+            </p>
         </section>
         <section>
             <h2>Meta Internals</h2>
@@ -72,5 +124,6 @@
             </p>
         </section>
     </main>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
